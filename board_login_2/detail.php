@@ -4,6 +4,11 @@
     include_once 'review.php';
 
     $page = $_GET['page'];
+    //검색
+    $search_txt = "";
+    if(isset($_GET['search_txt'])) {
+        $search_txt = $_GET['search_txt'];
+    }
 
     if(isset($_SESSION["login_user"])) {
         $login_user = $_SESSION["login_user"];
@@ -41,7 +46,9 @@
         <?php include('header.php') ?>
         <div class="cls">
             <div class="head">
-                <div class="list_btn"><a href="list.php?page=<?= $page ?>">글목록</a></div>
+                <div class="list_btn">
+                    <a href="list.php?page=<?= $page ?><?= $search_txt != "" ? "&search_txt={$search_txt}" : "" ?>">뒤로</a>
+                </div>
                 <div class="list_btn">
                 </div>
                 <div class="btn">
@@ -52,7 +59,7 @@
                 </div>
             </div>
             <div class="main">
-                <div class="title"><?= $rs["title"] ?></div>
+                <div class="title"><?= str_ireplace($search_txt, "<mark>{$search_txt}</mark>", $rs["title"]) ?></div>
                 <div class="sub">
                     <span class="nm"><?= $rs["nm"] ?></span>
                     <span class="view_cnt">조회 : <?= $rs['view_cnt'] ?></span>

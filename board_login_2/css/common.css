@@ -23,12 +23,9 @@ th { border-top: 2px solid rgb(159, 130, 238); padding: 15px 0; }
 td { text-align: center; padding: 10px 0; }
 
 .search_board { 
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
+    text-align: center;
+    padding-bottom: 15px;
 }
-.search_board .inp { 
-    display: inline-block; 
-    padding-top: 1rem;
-}
+.search_board input { padding: 5px; line-height: 18px; }
+
     

@@ -37,6 +37,9 @@
         $conn = get_conn();
         $sql = "SELECT ceil(count(i_board) / {$param['row_cnt']}) as cnt 
                 FROM t_board";
+        if($param['search_txt'] != "") {
+            $sql .= " WHERE title LIKE '%{$param['search_txt']}%'";
+        }
 
         $rs = mysqli_query($conn, $sql);
         mysqli_close($conn);
@@ -51,10 +54,13 @@
 
         $conn = get_conn();
         $sql = "SELECT a.*, b.nm, b.profile_img 
-                FROM t_board a, t_user b
-                WHERE a.i_user = b.i_user
-                ORDER BY a.i_board desc
-                LIMIT $s_idx, $row_cnt";
+                FROM t_board a
+                INNER JOIN t_user b
+                ON a.i_user = b.i_user ";
+        if($param['search_txt'] != "") {
+            $sql .= " WHERE a.title LIKE '%{$param['search_txt']}%' ";
+        }
+        $sql .= " ORDER BY a.i_board desc LIMIT $s_idx, $row_cnt";
 
         $rs = mysqli_query($conn, $sql);
         mysqli_close($conn);

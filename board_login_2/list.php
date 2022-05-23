@@ -2,14 +2,23 @@
     session_start();
     include_once 'db/db_board.php';
 
+    //페이징
     $page = 1;
     if(isset($_GET['page'])) {
         $page = intval($_GET['page']);
     }
-    $row_cnt = 10;
+    $row_cnt = 10;      //한 페이지에 보여줄 글개수
+
+    //검색
+    $search_txt = "";
+    if(isset($_GET['search_txt'])) {
+        $search_txt = $_GET['search_txt'];
+    }
+
     $param = [
         "s_idx" => ($page - 1) * $row_cnt,
         "row_cnt" => $row_cnt,
+        "search_txt" => $search_txt,
     ];
 
     $rs = sel_board_list($param);
@@ -31,6 +40,14 @@
         <?php include('header.php') ?>
         <main>
             <h1>글목록</h1>
+            <div class="search_board">
+                <form action="list.php" method="GET">
+                    <div>
+                        <input type="search" name="search_txt" value="<?= $search_txt ?>">
+                        <input type="submit" value="검색">
+                    </div>
+                </form>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -48,7 +65,9 @@
                     ?>
                     <tr>
                         <td><?= $i_board ?></td>
-                        <td><a href="detail.php?i_board=<?= $i_board ?>&page=<?= $page ?>"><?= $row["title"] ?></td>
+                        <td><a href="detail.php?i_board=<?= $i_board ?>&page=<?= $page ?><?= $search_txt != "" ? "&search_txt={$search_txt}" : "" ?>">
+                            <?= str_ireplace($search_txt, "<mark>{$search_txt}</mark>", $row["title"]) ?>
+                        </a></td>
                         <td>
                             <?= $row["nm"] ?>
                             <div class="circular_img wh40">
@@ -63,7 +82,9 @@
             </table>
             <div class="paging">
                 <?php for($i=1; $i<=$paging_cnt; $i++) { ?>
-                    <span class="<?= $i==$page ? "selected_page" : "" ?>"><a href="list.php?page=<?= $i ?>"><?= $i ?></a></span>
+                    <span class="<?= $i==$page ? "selected_page" : "" ?>">
+                        <a href="list.php?page=<?= $i ?><?= $search_txt != "" ? "&search_txt={$search_txt}" : "" ?>"><?= $i ?></a>
+                    </span>
                 <?php } ?>
             </div>
         </main>
