@@ -3,6 +3,8 @@
     include_once 'db/db_board.php';
     include_once 'review.php';
 
+    $page = $_GET['page'];
+
     if(isset($_SESSION["login_user"])) {
         $login_user = $_SESSION["login_user"];
     }
@@ -39,7 +41,7 @@
         <?php include('header.php') ?>
         <div class="cls">
             <div class="head">
-                <!-- <div class="list_btn"><a href="list.php">글목록</a></div> -->
+                <div class="list_btn"><a href="list.php?page=<?= $page ?>">글목록</a></div>
                 <div class="list_btn">
                 </div>
                 <div class="btn">
@@ -64,7 +66,7 @@
                 </div>
             </div>
             <div class="reply">
-                <h3>댓글 
+                <h3>댓글
                     <span style="font-size: medium;">[<?= $cnt ?>]</span>
                     <span><?= avg_rv($rv_cnt, $cnt) ?></span>
                 </h3>
@@ -76,7 +78,7 @@
                         <div class="d2"><?= $row["ctnt"] ?></div>
                         <div>
                             <?php if(isset($_SESSION["login_user"]) && $row["i_user"] == $login_user["i_user"]) { ?>
-                                <button onclick="reDel(<?= $row['i_re'] ?>);">삭제</button>
+                                <button onclick="reDel();">삭제</button>
                             <?php } ?>
                         </div>
                         <br>
@@ -105,9 +107,9 @@
                 location.href = "del.php?i_board=<?= $i_board ?>";
             }
         }
-        function reDel(i_re) {
+        function reDel() {
             if(confirm('삭제하시겠습니까?')) {
-                location.href = "re_del.php?i_board=<?= $i_board ?>&i_re=<?= $i_re ?>";
+                location.href = "re_del.php?i_board=<?= $i_board ?>&i_re=<?= $row['i_re'] ?>";
             }
         }
     </script>

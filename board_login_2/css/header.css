@@ -2,9 +2,9 @@
 html, body { height: 100%; }
 a { text-decoration: none; color: #222; }
 
-#container { 
+/* #container { 
     min-height: 100%;
-}
+} */
 #container header { 
     background-color: lavender; 
     display: flex; 

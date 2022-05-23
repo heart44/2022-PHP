@@ -7,21 +7,14 @@ a { text-decoration: none; color: #222; }
     grid-template-rows: 150px 1fr;
     min-height: 100%;
 }
-#container > header { 
-    background-color: lavender; 
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-header > div:nth-child(1) { margin-bottom: 5px; font-size: large; }
+
 h1 { text-align: center; padding-bottom: 10px; }
 
 main { padding: 10px 20px; }
 
 .paging { text-align: center; padding-top: 10px; }
-.pageSelected { font-weight: bold; }
-.pageSelected > a { color: rgb(159, 130, 238); }
+.selected_page { font-weight: bold; }
+.selected_page > a { color: rgb(159, 130, 238); }
 
 table { border-collapse: collapse; width: 80%; margin: auto; text-align: center; }
 tbody > tr > td > a:hover { font-weight: bold; }
@@ -29,17 +22,6 @@ tr { border-bottom: 1px solid #CCC; height: 70px; }
 th { border-top: 2px solid rgb(159, 130, 238); padding: 15px 0; }
 td { text-align: center; padding: 10px 0; }
 
-/* select {
-    width: 50px;
-    padding: .8em .5em;
-    border: 1px solid #999;
-    font-family: inherit;
-    background: url('C:\Users\Administrator\Downloads\angle-small-down.png') no-repeat 95% 50%;
-    border-radius: 0px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-} */
 .search_board { 
     display: flex; 
     justify-content: center;

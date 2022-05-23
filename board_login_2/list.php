@@ -48,7 +48,7 @@
                     ?>
                     <tr>
                         <td><?= $i_board ?></td>
-                        <td><a href="detail.php?i_board=<?= $i_board ?>"><?= $row["title"] ?></td>
+                        <td><a href="detail.php?i_board=<?= $i_board ?>&page=<?= $page ?>"><?= $row["title"] ?></td>
                         <td>
                             <?= $row["nm"] ?>
                             <div class="circular_img wh40">
@@ -61,9 +61,9 @@
                     <?php } ?>
                 </tbody>
             </table>
-            <div>
+            <div class="paging">
                 <?php for($i=1; $i<=$paging_cnt; $i++) { ?>
-                    <span><a href="list.php?page=<?= $i ?>"><?= $i ?></a></span>
+                    <span class="<?= $i==$page ? "selected_page" : "" ?>"><a href="list.php?page=<?= $i ?>"><?= $i ?></a></span>
                 <?php } ?>
             </div>
         </main>
