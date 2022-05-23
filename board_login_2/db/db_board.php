@@ -33,9 +33,9 @@
         return $rs;
     }
 
-    function sel_paging_cnt() {
+    function sel_paging_cnt(&$param) {
         $conn = get_conn();
-        $sql = "SELECT ceil(count(i_board) / 10) as cnt 
+        $sql = "SELECT ceil(count(i_board) / {$param['row_cnt']}) as cnt 
                 FROM t_board";
 
         $rs = mysqli_query($conn, $sql);
@@ -46,7 +46,7 @@
     }
 
     function sel_board_list(&$param) {
-        $start_idx = $param['start_idx'];
+        $s_idx = $param['s_idx'];
         $row_cnt = $param['row_cnt'];
 
         $conn = get_conn();
@@ -54,7 +54,7 @@
                 FROM t_board a, t_user b
                 WHERE a.i_user = b.i_user
                 ORDER BY a.i_board desc
-              ";
+                LIMIT $s_idx, $row_cnt";
 
         $rs = mysqli_query($conn, $sql);
         mysqli_close($conn);

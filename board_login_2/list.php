@@ -6,14 +6,15 @@
     if(isset($_GET['page'])) {
         $page = intval($_GET['page']);
     }
-
+    $row_cnt = 10;
     $param = [
-        
+        "s_idx" => ($page - 1) * $row_cnt,
+        "row_cnt" => $row_cnt,
     ];
 
     $rs = sel_board_list($param);
     $cnt = sel_board_list2();
-    $paging_cnt = sel_paging_cnt();
+    $paging_cnt = sel_paging_cnt($param);
 ?>
 
 <!DOCTYPE html>
