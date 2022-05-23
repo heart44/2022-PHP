@@ -1,0 +1,37 @@
+html, body { margin: 0; padding: 0; width: 100%; height: 100%;}
+
+#container {
+    width: 100%; height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.head { padding: 30px 20px; border-bottom: 1px solid #ccc;}
+
+.btn { 
+    display: inline-block;
+    float: right; 
+}
+.btn > a { margin-left: 10px; }
+button { padding: 5px; cursor: pointer; }
+
+.contents {
+    margin-top: 30px;
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+.contents .title { 
+    padding: 0 20px 20px 20px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.sub { padding: 0 0 30px 20px; border-bottom: 1px solid #ccc; }
+.sub .nick { padding-right: 15px; font-weight: 550; }
+.sub .view { padding-right: 10px; }
+.ctnt {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    font-size: 18px;
+}
