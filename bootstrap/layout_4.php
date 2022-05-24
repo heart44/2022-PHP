@@ -9,36 +9,30 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>부트스트랩</title>
     <style>
-        .container { background-color: lavender; }
-        .col-lg-2 { background-color: skyblue; }
-        .col-md-auto { background-color: aquamarine; }
-        .col { border: 0.5px solid #333; }
+        .col-md-8 { background-color: greenyellow; }
+        .col-6 { border: 0.5px solid #333; }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <div class="row">
-            <div class="col-auto col-lg-2">
-                1 of 3 (col-lg-2)
-            </div>
-            <div class="col-md-auto">
-                Variable width content
-            </div>
-            <div class="col col-lg-2">
-                3 of 3 (col-lg-2)
-            </div>
+            <div class="col-md-8">.col-md-8</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
         </div>
+
+        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+        <div class="row" style="background-color: skyblue;">
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+            <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        </div>
+
+        <!-- Columns are always 50% wide, on mobile and desktop -->
         <div class="row">
-            <div class="col">
-                1 of 3
-            </div>
-            <div class="col-md-auto">
-                Variable width content
-            </div>
-            <div class="col col-lg-2">
-                3 of 3
-            </div>
+            <div class="col-6">.col-6</div>
+            <div class="col-6">.col-6</div>
         </div>
     </div>
 </body>

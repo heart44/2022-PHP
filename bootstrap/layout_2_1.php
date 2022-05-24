@@ -10,33 +10,31 @@
     <title>부트스트랩</title>
     <style>
         .container { background-color: lavender; }
-        .col-lg-2 { background-color: skyblue; }
-        .col-md-auto { background-color: aquamarine; }
-        .col { border: 0.5px solid #333; }
+        .col-6 { background-color: skyblue; }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-auto col-lg-2">
-                1 of 3 (col-lg-2)
+            <div class="col">
+                1 of 3
             </div>
-            <div class="col-md-auto">
-                Variable width content
+            <div class="col-6 col-sm-3">
+                2 of 3 (wider)
             </div>
-            <div class="col col-lg-2">
-                3 of 3 (col-lg-2)
+            <div class="col col-sm-6">
+                3 of 3
             </div>
         </div>
         <div class="row">
             <div class="col">
                 1 of 3
             </div>
-            <div class="col-md-auto">
-                Variable width content
+            <div class="col-5">
+                2 of 3 (wider)
             </div>
-            <div class="col col-lg-2">
+            <div class="col">
                 3 of 3
             </div>
         </div>
