@@ -1,0 +1,6 @@
+참고 : https://mytory.net/archives/10997
+
+z-index 쌓임 맥락 
+    · 요소가 문서의 최상위 요소일 때 (즉, <html> 요소)
+    · 요소의 position 값이 static이 아니면서 z-index도 auto가 아닐 때
+    · 요소의 opacity 값이 1보다 작을 때
