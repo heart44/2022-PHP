@@ -85,7 +85,7 @@
                         <div class="d2"><?= $row["ctnt"] ?></div>
                         <div>
                             <?php if(isset($_SESSION["login_user"]) && $row["i_user"] == $login_user["i_user"]) { ?>
-                                <button onclick="reDel();">삭제</button>
+                                <button onclick="reDel(<?= $row['i_re'] ?>);">삭제</button>
                             <?php } ?>
                         </div>
                         <br>
@@ -114,9 +114,9 @@
                 location.href = "del.php?i_board=<?= $i_board ?>";
             }
         }
-        function reDel() {
+        function reDel(i_re) {
             if(confirm('삭제하시겠습니까?')) {
-                location.href = "re_del.php?i_board=<?= $i_board ?>&i_re=<?= $row['i_re'] ?>";
+                location.href = "re_del.php?i_board=<?= $i_board ?>&i_re="+i_re;
             }
         }
     </script>
