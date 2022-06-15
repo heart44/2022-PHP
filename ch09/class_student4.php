@@ -1,5 +1,5 @@
 <?php
-    class Student2 {     
+    class Student {     
         private $studentId; 
         private $studentName;
 
@@ -27,7 +27,7 @@
         }        
     }
 
-    $obj = new Student2;
+    $obj = new Student;
     $obj->setStudentId(1234567);    //return 되는 값은 obj랑 같음
     $obj->setStudentName('김가나');
     $obj->printStudent();

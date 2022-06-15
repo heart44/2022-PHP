@@ -34,19 +34,3 @@
     $stu1->printPeople();
     print "-----------------<br>";
     $stu1->printStudent();
-
-    class Professor extends People {
-        private $office_No;
-
-        function __construct($name, $age, $office_No) {
-            $this->name = $name;
-            $this->age = $age;
-            $this->office_No = $office_No;
-        }
-
-        function printProfessor() {
-            print "- Professor - <br>";
-            $this->printPeople();
-            print "No : " . $this->office_No . "<br>";
-        }
-    }
