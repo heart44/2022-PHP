@@ -2,6 +2,7 @@
     session_start();
     include_once 'db/db_board.php';
     include_once 'review.php';
+    include_once 'date.php';
 
     $page = $_GET['page'];
     //검색
@@ -39,6 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/container.css">
     <title><?= $rs['title'] ?></title>
 </head>
 <body>
@@ -63,7 +65,7 @@
                 <div class="sub">
                     <span class="nm"><?= $rs["nm"] ?></span>
                     <span class="view_cnt">조회 : <?= $rs['view_cnt'] ?></span>
-                    <span class="date">작성일 : <?= $rs["created_at"] ?></span>
+                    <span class="date">작성일 : <?= dateFormat($rs["created_at"]) ?></span>
                 </div>
                 <div class="contents">
                     <div class="ctnt"><?= $rs["ctnt"] ?></div>

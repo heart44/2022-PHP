@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once 'db/db_board.php';
+    include_once 'date.php';
 
     //페이징
     $page = 1;
@@ -33,6 +34,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/container.css">
     <title>글목록</title>
 </head>
 <body>
@@ -74,7 +76,7 @@
                                 <img src="/board_login/img/profile/<?= $profile_img ?>">
                             </div>
                         </td>
-                        <td><?= $row["created_at"] ?></td>
+                        <td><?= dateFormat($row["created_at"]) ?></td>
                         <td><?= $row['view_cnt'] ?></td>
                     </tr>
                     <?php } ?>
