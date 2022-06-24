@@ -1,0 +1,55 @@
+CREATE DATABASE board1;
+
+CREATE TABLE t_board (
+	i_board INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(200) NOT NULL,
+	ctnt VARCHAR(3000) NOT NULL,
+	create_at DATETIME DEFAULT NOW()
+);
+
+SELECT * FROM t_board;
+
+UPDATE t_board 
+SET title = "test22", ctnt = "test22", create_at 
+WHERE i_board = 1;
+
+
+
+CREATE TABLE t_board2 (
+	i_board INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(200) NOT NULL,
+	ctnt VARCHAR(3000) NOT NULL,
+	create_at DATETIME DEFAULT NOW(),
+	mod_at DATETIME DEFAULT NOW()
+);
+
+SELECT * FROM t_board2;
+DROP TABLE t_board2;
+
+
+
+CREATE TABLE t_board3 (
+	i_board INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	u_id VARCHAR(45) NOT NULL,
+	title VARCHAR(200) NOT NULL,
+	ctnt VARCHAR(3000) NOT NULL,
+	create_at DATETIME DEFAULT NOW(),
+	mod_at DATETIME DEFAULT NOW(),
+	FOREIGN KEY(u_id) REFERENCES t_user(u_id)
+);
+SELECT * FROM t_board3;
+DROP TABLE t_board3;
+
+DELETE FROM t_board3 WHERE i_board=14;
+
+ALTER TABLE t_board3 ADD view_cnt INT default 0;
+
+
+CREATE TABLE t_user (
+	u_id VARCHAR(45) PRIMARY KEY NOT null,
+	u_pw VARCHAR(200) NOT NULL,
+	u_nick VARCHAR(30) NOT null
+);
+SELECT * FROM t_user;
+DROP TABLE t_user;
+
