@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once '../database/db_user.php';
-    define("PROFILE_PATH", "img/profile/");
+    define("PROFILE_PATH", "../img/profile/");
 
     $login_user = &$_SESSION['login_user'];
     
