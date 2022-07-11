@@ -18,8 +18,8 @@
 
     // echo "i_user : ", $rs["i_user"], "<br>";
     // echo "upw : ", $rs["upw"], "<br>";
-
-    if($upw == $rs["upw"]) {
+    
+    if(password_verify($upw, $rs["upw"])) {
         $_SESSION["login_user"] = $rs;
         echo "<script>location.href = '../board/list.php';</script>";
         // header("Location: list.php");
