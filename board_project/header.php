@@ -9,8 +9,6 @@
 ?>
 
 <link rel="stylesheet" href="../css/header.css">
-
-
     <div id="container">
         <header>
             <?php
@@ -30,7 +28,7 @@
                             $profile_img = $session_img == null ? "user.jpg" : $_SESSION['login_user']['i_user'] . "/" . $session_img;
                         ?>
                         <div class="circular_img wh40">
-                            <img src="/board_login/img/profile/<?= $profile_img ?>">
+                            <img src="<?= "../img/profile/" . $profile_img ?>">
                         </div>
                     </a>
 
@@ -40,4 +38,3 @@
             </div>
         </header>
     </div>
-
