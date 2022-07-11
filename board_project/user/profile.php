@@ -52,7 +52,7 @@
                             <td width=15%>
                                 <?= $row["nm"] ?>
                                 <div class="circular_img wh40">
-                                    <img src="/board_project/img/profile/<?= $profile_img ?>">
+                                    <img src="../img/profile/<?= $profile_img ?>">
                                 </div>
                             </td>
                             <td width=30%><?= dateFormat($row["created_at"]) ?></td>
