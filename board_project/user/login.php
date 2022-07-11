@@ -1,59 +1,27 @@
-<?php
-    include_once 'db.php';
-
-    function ins_usr(&$param) {
-        $uid = $param["uid"];
-        $upw = $param["upw"];
-        $nm = $param["nm"];
-        $gender = $param["gender"];
-
-        $conn = get_conn();
-        $sql = "INSERT INTO t_user (uid, upw, nm, gender)
-                VALUES ('$uid', '$upw', '$nm', $gender)";
-        
-        $result = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-        
-        return $result;
-    }
-
-    function sel_user(&$param) {
-        $uid = $param["uid"];
-
-        $conn = get_conn();
-        $sql = "SELECT * FROM t_user
-                WHERE uid = '$uid'";
-        
-        $result = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-
-        return mysqli_fetch_assoc($result);
-    }
-
-    function upd_profile_img(&$param) {
-        $profile_img = $param['profile_img'];
-        $i_user = $param['i_user'];
-        $conn = get_conn();
-        $sql = "UPDATE t_user 
-                SET profile_img = '$profile_img'
-                WHERE i_user = '$i_user'";
-
-        $rs = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-
-        return $rs;
-    }
-
-    function selProfile(&$param) {
-        $iuser = $param["i_user"];
-
-        $conn = get_conn();
-        $sql = "SELECT aa.*, bb.nm, bb.profile_img FROM t_board aa, t_user bb
-                WHERE aa.i_user = bb.i_user AND aa.i_user = '$iuser'
-                ORDER BY i_board desc";
-
-        $result = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-
-        return $result;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <title>로그인</title>
+</head>
+<body>
+    <div id="container">
+        <?php include('../header.php') ?>
+        <div class="main">
+            <h1>로그인</h1>
+            <div class="login_area">
+                <form action="login_proc.php" method="POST">
+                    <div class="id"><input type="text" name="uid" placeholder="아이디"></div>
+                    <div class="pw"><input type="password" name="upw" placeholder="비밀번호"></div>
+                    <div class="sb_btn"><input type="submit" value="로그인"></div>
+                </form>
+            </div>
+            <a href="join.php"><button>회원가입</button></a>
+        </div>
+    </div>
+</body>
+</html>
