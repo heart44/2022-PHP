@@ -31,10 +31,12 @@
     }
 
     function upd_profile_img(&$param) {
+        $profile_img = $param['profile_img'];
+        $i_user = $param['i_user'];
         $conn = get_conn();
         $sql = "UPDATE t_user 
-                SET profile_img = '{$param['profile_img']}'
-                WHERE uid = {$param['i_user']}";
+                SET profile_img = '$profile_img'
+                WHERE i_user = '$i_user'";
 
         $rs = mysqli_query($conn, $sql);
         mysqli_close($conn);
@@ -46,7 +48,7 @@
         $iuser = $param["i_user"];
 
         $conn = get_conn();
-        $sql = "SELECT aa.*, bb.nm FROM t_board aa, t_user bb
+        $sql = "SELECT aa.*, bb.nm, bb.profile_img FROM t_board aa, t_user bb
                 WHERE aa.i_user = bb.i_user AND aa.i_user = '$iuser'
                 ORDER BY i_board desc";
 
